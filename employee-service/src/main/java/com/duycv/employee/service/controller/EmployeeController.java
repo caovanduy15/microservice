@@ -5,7 +5,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.duycv.employee.service.model.Employee;
 import com.duycv.employee.service.repository.EmployeeRepository;
@@ -17,6 +22,15 @@ public class EmployeeController {
 	
 	@Autowired
 	EmployeeRepository repository;
+	
+	@Autowired
+	Environment environment;
+	
+	@GetMapping("/hello")
+	public String hello() {
+		return "Employee service\n" + 
+				"Port: " + environment.getProperty("server.port");
+	}
 	
 	@PostMapping("/")
 	public Employee add(@RequestBody Employee employee) {
