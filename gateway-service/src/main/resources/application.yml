@@ -9,6 +9,8 @@ eureka:
 spring:
   application:
     name: gateway-service
+  zipkin:
+    base-url: http://127.0.0.1:9411/
   cloud:
     gateway:
       discovery:

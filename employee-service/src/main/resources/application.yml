@@ -9,3 +9,5 @@ eureka:
 spring:
   application:
     name: employee-service
+  zipkin:
+    base-url: http://127.0.0.1:9411/
