@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.duycv.organization.service.dto.DepartmentDTO;
 
-@FeignClient(name = "department-service")
+@FeignClient(name = "department-service", fallback = DepartmentClientFallback.class)
 public interface DepartmentClient {
 	@GetMapping("/organization/{organizationId}")
 	public List<DepartmentDTO> findByOrganization(@PathVariable("organizationId") Long organizationId);
