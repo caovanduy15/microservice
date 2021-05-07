@@ -23,16 +23,28 @@ spring:
         - Path=/employee/**
         filters:
         - RewritePath=/employee/(?<path>.*), /$\{path}
+        - name: CircuitBreaker
+          args:
+            name: employee-service
+            fallbackuri: forward:/employeeServiceFallback
       - id: department-service
         uri: lb://department-service
         predicates:
         - Path=/department/**
         filters:
         - RewritePath=/department/(?<path>.*), /$\{path}
+        - name: CircuitBreaker
+          args:
+            name: department-service
+            fallbackuri: forward:/departmentServiceFallback
       - id: organization-service
         uri: lb://organization-service
         predicates:
         - Path=/organization/**
         filters:
         - RewritePath=/organization/(?<path>.*), /$\{path}
-        
+        - name: CircuitBreaker
+          args:
+            name: organization-service
+            fallbackuri: forward:/organizationServiceFallback
+            
