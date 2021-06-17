@@ -1,0 +1,12 @@
+4.5	Triển khai
+Ứng dụng được cài đặt thử nghiệm trên máy tính windows và 4 GB RAM. Thứ tự các thao tác thực hiện triển khai như sau:
+Bước 1: Chuẩn bị sẵn một máy tính window với RAM ít nhất là 4 GB
+Bước 2: Cài đặt JDK, MySQL WorkBench, Spring Tool Suite 4, Postman và tải Zipkin Server về. URL của MySQL nên để mặc định ở cổng 3306. Username và password của MySQL là “root” và “root”.
+Bước 3: Import mã nguồn đính kèm vào Spring Tool Suite 4 cho từng dự án bao gồm: department-service, discovery-service, employee-service, gateway-service, hystrix-dashboard, organization-service.
+Bước 4: Import database từ folder database vào MySQL WorkBench.
+Bước 5: Import file DATN.postman_collection.json vào Postman
+Bước 6: Ở tab Boot Dashboard trong Spring Tool Suite 4, nhấn chuột phải vào employee-service và chọn Duplicate Config. Sau đó chuột phải vào config mới được tạo và chọn Open Config. Sau đó ở tab Agruments sau đó ở ô VM Agruments thêm “-Dserver.port=9091” sau đó ấn Apply để employee-service chạy thêm phiên bản ở cổng 9091 nữa.
+Bước 7: Tại folder chứa file tải Zipkin Server ở bước 1. Chúng ta chạy Zipkin Server bằng lệnh “java -jar zipkin.jar” trong đó zipkin.jar là tên file tải Zipkin Server.
+Bước 8: Ở tab Boot Dashboard trong Spring Tool Suite 4, chạy discovery-service đầu tiên sau đó là chạy các dịch vụ còn lại. Nhớ vào MySQL WorkBench trước khi chạy các dịch vụ để tránh MySQL chưa chạy.
+Bước 9: Vào localhost:8061 để xem các dịch vụ đã đăng kí với discovery chưa
+Bước 10: Vào Postman và request thử hệ thống

@@ -13,6 +13,9 @@ spring:
     base-url: http://127.0.0.1:9411/
   cloud:
     gateway:
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 8s
       discovery:
         locator:
           enabled: true
@@ -46,5 +49,10 @@ spring:
         - name: CircuitBreaker
           args:
             name: organization-service
-            fallbackuri: forward:/organizationServiceFallback
+            fallbackuri: forward:/organizationServiceFallback       
             
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

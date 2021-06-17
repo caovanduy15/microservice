@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "7d674fc6-a59d-4a4d-af97-f5c98968ced8",
+		"name": "DATN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\": 6,\r\n    \"departmentId\": 9,\r\n    \"name\": \"Vũ Thị Hương Giang\",\r\n    \"age\": 30,\r\n    \"position\": \"Trưởng Bộ môn, Bộ môn Công nghệ Phần mềm\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/20",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIdWithDepartmentAndOrganization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/20/with-department-and-organization",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"20",
+								"with-department-and-organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByDepartment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/department/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"department",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByOrganization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/organization/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"organization",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/16",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\": 1,\r\n    \"name\": \"Accounting\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8091/",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8091/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8091/",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByOrganization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8091/organization/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"organization",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByOrganizationWithEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8091/organization/2/with-employees",
+							"host": [
+								"localhost"
+							],
+							"port": "8091",
+							"path": [
+								"organization",
+								"2",
+								"with-employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Apple\",\r\n    \"address\": \"Cupertino, California, United States\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIdWithDepartments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/1/with-departments",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"1",
+								"with-departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIdWithDepartmentsAndEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/1/with-departments-and-employees",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"1",
+								"with-departments-and-employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIdWithEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/2/with-employees",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"2",
+								"with-employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway Service",
+			"item": [
+				{
+					"name": "Employee Copy",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"organizationId\": 1,\r\n    \"departmentId\": 1,\r\n    \"name\": \"Duy Cao\",\r\n    \"age\": 23,\r\n    \"position\": \"Developer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8060/employee/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdWithDepartmentAndOrganization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/1/with-department-and-organization",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"1",
+										"with-department-and-organization"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByDepartment",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/department/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"department",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByOrganization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/organization/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"organization",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hello",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/hello",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/employee/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"employee",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Department Copy",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"organizationId\": 6,\r\n    \"name\": \"Viện Toán ứng dụng và Tin học\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8060/department/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdWithEmployees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/10/with-employees",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										"10",
+										"with-employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByOrganization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/organization/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										"organization",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByOrganizationWithEmployees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/organization/2/with-employees",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										"organization",
+										"2",
+										"with-employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/department/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"department",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Organization Copy",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Trường Đại học Bách khoa Hà Nội\",\r\n    \"address\": \"1 Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8060/organization/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdWithDepartments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/6/with-departments",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										"6",
+										"with-departments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdWithDepartmentsAndEmployees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/2/with-departments-and-employees",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										"2",
+										"with-departments-and-employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdWithEmployees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/2/with-employees",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										"2",
+										"with-employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteById",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8060/organization/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8060",
+									"path": [
+										"organization",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

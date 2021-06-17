@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,12 @@ public class OrganizationController {
 	public Organization findById(@PathVariable("id") Long id) {
 		LOGGER.info("Organization find: id={}", id);
 		return repository.findById(id).get();
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteById(@PathVariable("id") Long id) {
+		LOGGER.info("Organization delete: id={}", id);
+		repository.deleteById(id);
 	}
 
 	@GetMapping("/{id}/with-departments")

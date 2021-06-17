@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,21 @@ public class DepartmentController {
 	public Department findById(@PathVariable("id") Long id) {
 		LOGGER.info("Department find: id={}", id);
 		return repository.findById(id).get();
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteById(@PathVariable("id") Long id) {
+		LOGGER.info("Department delete: id={}", id);
+		repository.deleteById(id);
+	}
+	
+	@GetMapping("/{id}/with-employees")
+	public DepartmentDTO findByIdWithEmployees(@PathVariable("id") Long id) {
+		LOGGER.info("Department find: id={}", id);
+		Department department = repository.findById(id).get();
+		DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
+		departmentDTO.setEmployees(employeeClient.findByDepartment(departmentDTO.getId()));
+		return departmentDTO;
 	}
 	
 	@GetMapping("/")
